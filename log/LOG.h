@@ -5,9 +5,6 @@
 #ifndef RPI_SPI_TESTING_LOG_H
 #define RPI_SPI_TESTING_LOG_H
 
-#ifndef LOG_H
-#define LOG_H
-
 #include <iostream>
 #include <string>
 #include <cstdlib>
