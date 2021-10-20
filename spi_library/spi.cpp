@@ -10,6 +10,9 @@ std::mutex lock_spi;
 
 
 int SPI::Init(std::string device, uint8_t mode, uint8_t bits, uint32_t speed, uint8_t cs) {
+    if (_isInited)
+        return 0;
+    _isInited = true;
 
     int ret = 0;
 

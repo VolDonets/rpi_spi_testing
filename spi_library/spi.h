@@ -52,6 +52,8 @@ public:
 
 
 class SPI : public ISPI {
+    bool _isInited = false;
+
 public:
 
     int Init(std::string device, uint8_t mode, uint8_t bits, uint32_t speed, uint8_t cs);
