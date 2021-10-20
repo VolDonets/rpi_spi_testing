@@ -4,6 +4,7 @@ project(rpi_spi_testing)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(rpi_spi_testing
-        spi_library/spi.h spi_library/spi.cpp
         log/LOG.h
+        spi_library/spi.h spi_library/spi.cpp
+        holder_controller/holder_controller.h holder_controller/holder_controller.cpp
         main.cpp)

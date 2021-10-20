@@ -1,16 +1,15 @@
 #include <iostream>
+#include <unistd.h>
 
-#include "spi_library/spi.h"
+#include "holder_controller/holder_controller.h"
 
 int main() {
-    uint8_t buff[8] = {0xFF, 0x00, 0x01, 0xFF, 0x00, 0x01, 0xFF, 0x33};
-
-    SPI spi;
-    spi.Init("/dev/spidev0.0", SPI::SpiMode::MODE1, 8, 1100000, 0);
+    std::shared_ptr<HolderController> _holderController = std::make_shared<HolderController>();
 
     int i = 1000;
     while (i--) {
-        spi.transferArray(buff, 8);
+        _holderController->setMoveSpeed((uint8_t) i, (uint8_t) i);
+        usleep(10000);
     }
 
     return 0;
