@@ -22,9 +22,10 @@ void HolderController::recalculateMessageSum() {
     _messageOutBuffer[_BUFFER_OUT_SIZE - 1] = (uint8_t) messageSum;
 }
 
-void HolderController::setMoveSpeed(uint8_t xSpeed, uint8_t ySpeed) {
+void HolderController::setMoveSpeed(uint8_t xSpeed, uint8_t ySpeed, uint8_t direction) {
     _messageOutBuffer[1] = xSpeed; // set speed for X axis
     _messageOutBuffer[2] = ySpeed; // set speed for Y axis
+    _messageOutBuffer[3] = direction; // set movement direction
     for (int i = 3; i < _BUFFER_OUT_SIZE - 1; i++)
         _messageOutBuffer[i] = 0x00;
 
@@ -33,5 +34,5 @@ void HolderController::setMoveSpeed(uint8_t xSpeed, uint8_t ySpeed) {
 }
 
 void HolderController::stopMoving() {
-    setMoveSpeed(0x00, 0x00);
+    setMoveSpeed(0x00, 0x00, 0x00);
 }

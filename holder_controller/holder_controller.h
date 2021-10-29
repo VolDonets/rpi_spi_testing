@@ -21,9 +21,9 @@ class HolderController {
      * 6 byte -//-
      * 7 byte is control sum for message checking
      */
-    const uint32_t _BUFFER_OUT_SIZE = 8;
-    uint8_t _messageOutBuffer[8] = {0xFF, 0x00, 0x00, 0x00,
-                                    0x00, 0x00, 0x00, 0x00};
+    const uint32_t _BUFFER_OUT_SIZE = 6;
+    uint8_t _messageOutBuffer[6] = {0xFF, 0x00, 0x00,
+                                    0x00, 0x00, 0x00};
     std::shared_ptr<SPI> _spiDriver;
 
 
@@ -33,7 +33,7 @@ public:
     HolderController();
     HolderController(std::shared_ptr<SPI> spiDriver);
 
-    void setMoveSpeed(uint8_t xSpeed, uint8_t ySpeed);
+    void setMoveSpeed(uint8_t xSpeed, uint8_t ySpeed, uint8_t direction);
     void stopMoving();
 };
 
